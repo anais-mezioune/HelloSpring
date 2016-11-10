@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" 
+   default-init-method="init">
+   
+   
+   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://192.168.1.11:3306/Eleves" />
+        <property name="username" value="root" />
+        <property name="password" value="formation" />
+    </bean> 
+     <bean id="eleveJdbcTemplate" class="com.m2i.spring.EleveJDBCTemplate" >
+        <property name="dataSource" ref="dataSource" />
+    </bean> 
+   
+    <!-- <bean id="textEditor" class="com.m2i.spring.TextEditor" >
+         <property name="spellChecker">
+         	<bean id="spellChecker" class="com.m2i.spring.SpellChecker" />
+        </property>
+    </bean>  -->
+   
+    <!-- <bean id="beanTemplate" abstract="true" >
+        <property name="message1" value="Hello M2i" />
+        <property name="message2" value="Hello M2i pour la seconde fois" />
+        <property name="message3" value="Hello M2i pour la troisième fois" />
+    </bean>    
+    <bean id="helloWorld" class="com.m2i.spring.HelloWorld" >
+        <property name="message1" value="Hello M2i" />
+        <property name="message2" value="Hello M2i pour la seconde fois" />
+    </bean> 
+    <bean id="helloPoec" class="com.m2i.spring.HelloPoec" parent="beanTemplate">
+        <property name="message1" value="Hello Julien" />
+        <property name="message3" value="Hello tristesse" />
+    </bean>         -->  
+</beans>
